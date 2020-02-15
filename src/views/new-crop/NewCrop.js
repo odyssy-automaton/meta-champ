@@ -26,7 +26,7 @@ const NewCrop = () => {
       {isSignedIn(accounts) ? (
         <h1>New Crop Form</h1>
       ) : (
-        <button onClick={() => signIn()}>Sign In</button>
+        <p>You need to sign in</p>
       )}
     </div>
   );
