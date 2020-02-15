@@ -1,10 +1,10 @@
-import React from "react";
-import { Switch, Route } from "react-router-dom";
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 
-import Home from "./views/home/Home.js";
-import NewCrop from "./views/new-crop/NewCrop.js";
-import FourOhFour from "./views/404/404.js";
-import Explore from "./views/explore/Explore.js";
+import Home from './views/home/Home.js';
+import NewCrop from './views/new-crop/NewCrop.js';
+import FourOhFour from './views/404/404.js';
+import Explore from './views/explore/Explore.js';
 
 const Routes = () => (
   <Switch>

@@ -28,7 +28,9 @@ const useFortmatic = apiKey => {
     return web3.eth
       .getAccounts()
       .then(newAccounts => {
-        if (newAccounts[0] !== accounts[0]) setAccounts(newAccounts);
+        if (newAccounts[0] !== accounts[0]) {
+          setAccounts(newAccounts);
+        }
         return newAccounts;
       })
       .catch(() => {
@@ -40,6 +42,7 @@ const useFortmatic = apiKey => {
 
   const signOut = async () => {
     const { fm } = await web3Ready;
+
     // signOut returns a promise that will wait
     // until signout is complete to resolve.
     await fm.user.logout();
