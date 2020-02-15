@@ -1,0 +1,47 @@
+@import './variables';
+
+.App {
+}
+
+.Form {
+  padding: 25px;
+}
+
+input,
+textarea {
+  // Reset
+  outline: none;
+  appearance: none;
+  border: none;
+  background-color: $app-light;
+  color: black;
+  // Style
+  border: none;
+  min-width: 240px;
+  width: calc(100% - 40px);
+  font-size: 21px;
+  padding: 20px 20px 10px 20px;
+  border-radius: 35px;
+  box-shadow: $shadow;
+}
+
+.Field {
+  position: relative;
+  margin-top: 25px;
+  label {
+    pointer-events: none;
+    position: absolute;
+    left: 20px;
+    top: 17px;
+    color: lighten($primary, 10%);
+    background-color: transparent;
+    z-index: 7;
+    transition: transform 150ms ease-out, font-size 150ms ease-out;
+  }
+  &.HasValue {
+    label {
+      transform: translateY(-75%);
+      font-size: 0.75em;
+    }
+  }
+}
