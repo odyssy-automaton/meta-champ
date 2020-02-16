@@ -10,9 +10,11 @@ const Home = () => {
       <h1>Home</h1>
 
       <Link to="/explore">Explore</Link>
-      {fortmatic && fortmatic.accounts[0] ? (
-        <Link to="/new-crop">Create Crop</Link>
-      ) : null}
+
+{fortmatic && fortmatic.accounts[0] ? (
+      <Link to="/new-sample">New Sample</Link>
+    ) : null}
+
     </div>
   );
 };
