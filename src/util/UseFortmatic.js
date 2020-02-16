@@ -31,6 +31,7 @@ const useFortmatic = apiKey => {
         if (newAccounts[0] !== accounts[0]) {
           setAccounts(newAccounts);
         }
+
         return newAccounts;
       })
       .catch(() => {
