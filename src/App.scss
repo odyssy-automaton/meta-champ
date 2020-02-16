@@ -3,8 +3,13 @@
 .App {
 }
 
+img {
+  display: block;
+}
+
 .Form {
   padding: 25px;
+  width: calc(100% - 50px);
 }
 
 input,
@@ -35,7 +40,7 @@ textarea {
     top: 17px;
     color: lighten($primary, 10%);
     background-color: transparent;
-    z-index: 7;
+    z-index: 1;
     transition: transform 150ms ease-out, font-size 150ms ease-out;
   }
   &.HasValue {
