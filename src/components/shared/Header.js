@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import CoLogo from '../../assets/co-logo.svg';
 import useFortmatic from '../../util/UseFortmatic';
 
 const Header = () => {
@@ -8,9 +8,13 @@ const Header = () => {
     process.env.REACT_APP_FORTMATIC_API_KEY,
   );
 
+  console.log(CoLogo);
   return (
     <header className="App-header">
-      <Link to="/">Meta Champ</Link>
+      <Link to="/">
+        <img src={CoLogo} alt="meta champ" />
+        Meta Champ
+      </Link>
       {isSignedIn(accounts) ? (
         <button onClick={() => signOut()}>Sign Out</button>
       ) : (
