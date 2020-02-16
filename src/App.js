@@ -2,9 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import Routes from './Routes';
+import Header from './components/shared/Header';
 
 import './App.scss';
-import Header from './components/shared/Header';
 
 function App() {
   return (

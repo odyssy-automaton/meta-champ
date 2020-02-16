@@ -13,6 +13,11 @@
     orbit-db "^0.23.1"
     orbit-db-access-controllers "~0.2.4"
 
+"3box-react-hooks@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/3box-react-hooks/-/3box-react-hooks-2.0.1.tgz#00c2449659c21ec6e67748693694bbbb11ac1d30"
+  integrity sha512-/826OAl7uWd7o8ukkmiLbzbwMa9UWab0hpKe3/Vbdlntq2TFOXyz5rQ5ZeQMxifrN6QNUcJAb+ozB6aZSMoSXA==
+
 "3box@^1.17.0":
   version "1.17.0"
   resolved "https://registry.yarnpkg.com/3box/-/3box-1.17.0.tgz#a9a39e8de8c0841725e3173033698c882a5a2b24"
