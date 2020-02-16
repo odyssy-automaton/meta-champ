@@ -1,6 +1,7 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useContext } from 'react';
 import Web3 from 'web3';
 import Fortmatic from 'fortmatic';
+import { FortmaticContext } from '../contexts/Store';
 
 const usePromise = () => {
   const ref = [];
@@ -18,6 +19,7 @@ const useFortmatic = apiKey => {
   const [accounts, setAccounts] = useState([]);
   const [web3Ready, setWeb3Ready] = usePromise();
   const [web3IsInitialized, setWeb3IsInitialized] = useState(false);
+  // const [, setFortmatic] = useContext(FortmaticContext);
 
   const signIn = async () => {
     const { web3 } = await web3Ready;
@@ -68,7 +70,7 @@ const useFortmatic = apiKey => {
     initializeWeb3();
   }, []);
 
-  return {
+  const res = {
     accounts,
     signOut,
     signIn,
@@ -76,6 +78,10 @@ const useFortmatic = apiKey => {
     web3Ready,
     web3IsInitialized,
   };
+
+  // setFortmatic(res);
+
+  return res;
 };
 
 export default useFortmatic;

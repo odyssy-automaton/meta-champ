@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Box from '3box';
 
 import CoLogo from '../../assets/co-logo.svg';
 import useFortmatic from '../../util/UseFortmatic';
+import { BoxContext, FortmaticContext } from '../../contexts/Store';
 
 const Header = () => {
   const {
@@ -14,6 +15,8 @@ const Header = () => {
     web3Ready,
     web3IsInitialized,
   } = useFortmatic(process.env.REACT_APP_FORTMATIC_API_KEY);
+  const [, setBox] = useContext(BoxContext);
+  const [, setFortmatic] = useContext(FortmaticContext);
 
   useEffect(() => {
     const setUp3Box = async () => {
@@ -26,8 +29,18 @@ const Header = () => {
 
         const space = await box.openSpace('metaChamp');
 
+        setFortmatic({
+          accounts,
+          signOut,
+          signIn,
+          isSignedIn,
+          web3Ready,
+          web3IsInitialized,
+        });
+
         console.log('box', box);
         console.log('space', space);
+        // setBox({ box, space });
       }
     };
 
