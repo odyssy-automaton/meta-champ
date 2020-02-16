@@ -8,7 +8,7 @@ const Home = () => {
 
       <Link to="/explore">Explore</Link>
 
-      <Link to="/new-crop">Create Crop</Link>
+      <Link to="/new-sample">New Sample</Link>
     </div>
   );
 };
