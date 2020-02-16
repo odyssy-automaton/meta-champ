@@ -16,7 +16,7 @@ const Header = () => {
     web3IsInitialized,
   } = useFortmatic(process.env.REACT_APP_FORTMATIC_API_KEY);
   const [, setBox] = useContext(BoxContext);
-  const [, setFortmatic] = useContext(FortmaticContext);
+  const [fortmatic, setFortmatic] = useContext(FortmaticContext);
 
   useEffect(() => {
     const setUp3Box = async () => {
@@ -53,8 +53,10 @@ const Header = () => {
         <img src={CoLogo} alt="meta champ" />
         Meta Champ
       </Link>
+      <div>{fortmatic && <p>fortmatic.accounts[0]</p>}</div>
       {isSignedIn(accounts) ? (
-        <button onClick={() => signOut()}>Sign Out</button>
+        <button onClick={() => signOut()}>Sign Out </button>
+
       ) : (
         <button onClick={() => signIn()}>Sign In</button>
       )}
