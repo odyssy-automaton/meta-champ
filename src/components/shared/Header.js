@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Box from '3box';
 
+import CoLogo from '../../assets/co-logo.svg';
 import useFortmatic from '../../util/UseFortmatic';
 
 const Header = () => {
@@ -35,7 +36,10 @@ const Header = () => {
 
   return (
     <header className="App-header">
-      <Link to="/">Meta Champ</Link>
+      <Link to="/">
+        <img src={CoLogo} alt="meta champ" />
+        Meta Champ
+      </Link>
       {isSignedIn(accounts) ? (
         <button onClick={() => signOut()}>Sign Out</button>
       ) : (
