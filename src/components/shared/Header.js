@@ -53,7 +53,7 @@ const Header = () => {
         <img src={CoLogo} alt="meta champ" />
         Meta Champ
       </Link>
-      <div>{fortmatic && <p>fortmatic.accounts[0]</p>}</div>
+      <div>{fortmatic && <p>{fortmatic.accounts[0]}</p>}</div>
       {isSignedIn(accounts) ? (
         <button onClick={() => signOut()}>Sign Out </button>
 
