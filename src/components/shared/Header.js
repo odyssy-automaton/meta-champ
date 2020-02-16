@@ -40,7 +40,7 @@ const Header = () => {
 
         console.log('box', box);
         console.log('space', space);
-        // setBox({ box, space });
+        setBox({ box, space });
       }
     };
 
