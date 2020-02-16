@@ -7,6 +7,7 @@ import useFortmatic from '../../util/UseFortmatic';
 import { BoxContext, FortmaticContext } from '../../contexts/Store';
 
 const Header = () => {
+  
   const {
     accounts,
     signOut,
@@ -15,7 +16,7 @@ const Header = () => {
     web3Ready,
     web3IsInitialized,
   } = useFortmatic(process.env.REACT_APP_FORTMATIC_API_KEY);
-  const [, setBox] = useContext(BoxContext);
+  const [box, setBox] = useContext(BoxContext);
   const [fortmatic, setFortmatic] = useContext(FortmaticContext);
 
   useEffect(() => {
@@ -40,12 +41,17 @@ const Header = () => {
 
         console.log('box', box);
         console.log('space', space);
-        // setBox({ box, space });
+        const profile = await Box.getProfile(accounts[0]);
+        const name = await box.public.get('name');
+        console.log(profile);
+        
+        setBox({ box, space, profile, name });
       }
     };
 
     setUp3Box();
   }, [accounts, web3IsInitialized]);
+
 
   return (
     <header className="App-header">
@@ -53,7 +59,10 @@ const Header = () => {
         <img src={CoLogo} alt="meta champ" />
         Meta Champ
       </Link>
-      <div>{fortmatic && <p>{fortmatic.accounts[0]}</p>}</div>
+      <div>
+  {fortmatic && <p>{fortmatic.accounts[0]}{box && box.name ? (<span> {box.name}</span>) : (<a href={`/profile/${fortmatic.accounts[0]}`}> set name</a>)}</p>}
+
+        </div>
       {isSignedIn(accounts) ? (
         <button onClick={() => signOut()}>Sign Out </button>
 

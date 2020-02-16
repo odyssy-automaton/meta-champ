@@ -12,6 +12,7 @@ const SampleForm = (props) => {
     console.log('sampleId', sampleId);
 
     const [loading, setLoading] = useState(false);
+    const [verify, setVerify] = useState(false);
     const [data, setData] = useState(false);
 
     useEffect(() => {
@@ -67,38 +68,45 @@ const SampleForm = (props) => {
             <div>
                 {loading && <Loading />}
 
+
+
                 <div>
+                    {!verify ? (<button onClick={() => setVerify(true)}>verify</button>) : (
+                        <Formik
+                            initialValues={{
+                                sampleId: ''
+                            }}
+                            onSubmit={async (values, { setSubmitting }) => {
+                                console.log(values);
 
-                    <Formik
-                        initialValues={{
-                            sampleId: ''
-                        }}
-                        onSubmit={async (values, { setSubmitting }) => {
-                            console.log(values);
+                            }}
+                        >
+                            {({ isSubmitting }) => (
+                                <Form className="Form">
+                                    <Field name="sampleId">
+                                        {({ field, form }) => (
+                                            <div className={field.value ? 'Field HasValue' : 'Field '}>
+                                                <label>Id</label>
+                                                <input type="text" {...field} />
+                                            </div>
+                                        )}
+                                    </Field>
 
-                        }}
-                    >
-                        {({ isSubmitting }) => (
-                            <Form className="Form">
-                                <Field name="sampleId">
-                                    {({ field, form }) => (
-                                        <div className={field.value ? 'Field HasValue' : 'Field '}>
-                                            <label>Id</label>
-                                            <input type="text" {...field} />
-                                        </div>
-                                    )}
-                                </Field>
-                                <ErrorMessage name="sampleId">
-                                    {(msg) => <div className="Error">{msg}</div>}
-                                </ErrorMessage>
+                                    <ErrorMessage name="sampleId">
+                                        {(msg) => <div className="Error">{msg}</div>}
+                                    </ErrorMessage>
 
 
-                                <button type="submit" disabled={isSubmitting}>
-                                    Submit
-                            </button>
-                            </Form>
-                        )}
-                    </Formik>
+                                    <button type="submit" disabled={isSubmitting}>
+                                        Submit
+                                    </button>
+                                </Form>
+                            )}
+                        </Formik>
+
+                    )}
+
+
 
                 </div>
             </div>

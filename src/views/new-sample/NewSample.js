@@ -2,7 +2,6 @@ import React from 'react';
 import SampleForm from '../../components/forms/SampleForm';
 
 const NewSample = (props) => {
-  console.log('jajaja', props.match.params.sampleId);
   
   return (
     <div className="View">
